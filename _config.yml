@@ -17,7 +17,6 @@ url                      : https://taehyeon-k.github.io/ # The base hostname & p
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "taehyeon-k/taehyeon-k.github.io"
-appearance: light
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -27,9 +26,11 @@ author:
   avatar           : "image.jpeg"
   name             : "Taehyeon Kim"
   bio              : "Undergreduate student <br>@ Yonsei University"
-  location         : "Seoul, Korea"
+  location         : 
   uri              : # URL
   email            : "taehyeon2006@yonsei.ac.kr" 
+  cv               : "/files/kimtaehyeon_CV.pdf"
+  
 
   # Academic websites
   academia         : # URL
@@ -216,10 +217,10 @@ kramdown:
 
 
 # These settings control the types of collections used by the template
-#collections:
-# teaching:
-#    output: true
-#    permalink: /:collection/:path/
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
  
 
 # These settings control how pages and collections are included in the site
@@ -242,6 +243,15 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
  
 # Sass/SCSS
 sass:
