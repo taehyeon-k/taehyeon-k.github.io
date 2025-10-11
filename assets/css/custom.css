@@ -1,0 +1,48 @@
+/* Stronger section divider for <hr> */
+hr,
+.section-divider {
+  border: 0;
+  border-top: 1px solid #222; /* darker color, thinner line */
+  margin: 28px 0;
+}
+
+/* Darker but thinner bottom border for headings */
+.page__content h2,
+.page__content h3 {
+  border-bottom: 1px solid #222; /* darker + thinner */
+  padding-bottom: 6px;
+  margin-top: 32px;
+}
+
+/* Optional: look good in dark mode too */
+@media (prefers-color-scheme: dark) {
+  hr, .section-divider,
+  .page__content h2,
+  .page__content h3 {
+    border-color: #e0e0e0;
+  }
+}
+
+
+/* Neutral link: same color as surrounding text + small link icon */
+.link-icon {
+  color: currentColor;           /* inherit original text color */
+  text-decoration: none;         /* no default underline */
+  border-bottom: none;           /* neutralize theme borders */
+  position: relative;
+  padding-right: 0.9em;          /* room for the icon */
+}
+
+.link-icon::after {
+  content: "↗";                 /* small link icon */
+  font-size: 0.8em;              /* slightly smaller than text */
+  opacity: 0.65;                 /* subtle by default */
+  position: absolute;
+  right: 0; top: 0.05em;         /* align nicely with baseline */
+  line-height: 1;
+}
+
+.link-icon:hover::after,
+.link-icon:focus::after {
+  opacity: 1;                    /* clearer on hover/focus */
+}
