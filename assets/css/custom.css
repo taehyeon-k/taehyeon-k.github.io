@@ -70,3 +70,27 @@ hr,
   .project-card__header{flex-direction:column; align-items:flex-start}
   .project-card__date{margin-top:.25rem}
 }
+
+/* CV rows: title left, date right */
+.cv-flex{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1rem;
+  margin:.15rem 0;
+}
+.cv-date{ white-space:nowrap; opacity:.8; font-size:.95em; }
+
+/* nested bullet spacing */
+ul.cv-sub{
+  margin: .25rem 0 .75rem .75rem;
+  padding-left: .75rem;
+  list-style: circle outside ;
+  list-style-position: outside;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 600px){
+  .cv-flex{ flex-direction:column; gap:.25rem; }
+  .cv-date{ align-self:flex-start; }
+}
