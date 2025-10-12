@@ -1,0 +1,23 @@
+<div class="project-card">
+  {% if include.item.header and include.item.header.teaser %}
+  <a class="project-card__image" href="{{ include.item.link | default: include.item.url }}">
+    <img src="{{ include.item.header.teaser | relative_url }}" alt="{{ include.item.title }}">
+  </a>
+  {% endif %}
+  <div class="project-card__body">
+    <h2 class="project-card__title">
+      <a href="{{ include.item.link | default: include.item.url }}">{{ include.item.title }}</a>
+    </h2>
+    {% if include.item.authors %}
+      <p class="project-card__meta">{{ include.item.authors }}{% if include.item.year %} ({{ include.item.year }}){% endif %}</p>
+    {% endif %}
+    {% if include.item.excerpt %}
+      <p>{{ include.item.excerpt }}</p>
+    {% endif %}
+    <!--<p class="project-card__links">
+      {% if include.item.paper %}<a href="{{ include.item.paper }}">paper</a>{% endif %}
+      {% if include.item.code %} · <a href="{{ include.item.code }}">code</a>{% endif %}
+      {% if include.item.demo %} · <a href="{{ include.item.demo }}">demo</a>{% endif %}
+    </p>-->
+  </div>
+</div>

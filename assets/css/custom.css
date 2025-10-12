@@ -46,3 +46,13 @@ hr,
 .link-icon:focus::after {
   opacity: 1;                    /* clearer on hover/focus */
 }
+
+.project-card{display:flex;gap:1.25rem;align-items:flex-start;margin:1.5rem 0}
+.project-card__image img{width:280px;max-width:40vw;border-radius:12px}
+.project-card__body{flex:1}
+.project-card__title{margin:0 0 .25rem 0}
+.project-card__meta{margin:.25rem 0 .75rem 0;opacity:.8}
+@media (max-width: 720px){
+  .project-card{flex-direction:column}
+  .project-card__image img{width:100%;max-width:100%}
+}

@@ -11,5 +11,8 @@
     ],
     "workspaceFolder": "/usr/src/app",
     "remoteUser": "vscode",
-    "forwardPorts": [4000] // Add port forwarding
+    "forwardPorts": [4000], // Add port forwarding
+    "runArgs": ["--memory=4g", "--memory-swap=8g", "--shm-size=1g"],
+    "remoteEnv": { "BUNDLE_JOBS": "2" },
+    "postCreateCommand": "bundle config set --local jobs 2"
 }
