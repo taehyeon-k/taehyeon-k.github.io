@@ -1,6 +1,6 @@
 ---
 title: "Stock Market Prediction"
-date: 2024-12-00
+date: 2024-12-01
 collection: projects
 authors: "Taehyeon Kim"
 year: 2024
