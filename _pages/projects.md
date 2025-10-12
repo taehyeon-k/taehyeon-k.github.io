@@ -21,8 +21,8 @@ author_profile: true
 
         {% if item.date or item.year %}
           <time class="project-card__date"
-                datetime="{% if item.date %}{{ item.date | date_to_xmlschema }}{% endif %}">
-            {% if item.date %}{{ item.date | date: "%Y-%m-%d" }}{% else %}{{ item.year }}{% endif %}
+                {% if item.date %}datetime="{{ item.date | date_to_xmlschema }}"{% endif %}>
+            {% if item.date %}{{ item.date | date: "%b. %Y" }}{% else %}{{ item.year }}{% endif %}
           </time>
         {% endif %}
       </div>
