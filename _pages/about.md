@@ -7,9 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-I am a undergraduate student at Yonsei University, majoring in Aritificial Intelligence. 
+I am an undergraduate student at Yonsei University, majoring in Artificial Intelligence. 
 
-My research focuses on **Multimodal Generative AI**, with a particular emphasis on **user-guided image manipulation** driven by natural language instructions. My ultimate goal is to develop artificial intelligence systems that comprehend the laws of physics and the underlying principles governing the world, enabling computers and robots to perceive and reason in a human-like manner.
+My research focuses on **Multimodal Generative AI**, with a particular emphasis on **user-guided image editing** driven by natural language instructions. My ultimate goal is to develop artificial intelligence systems that comprehend the laws of physics and the underlying principles governing the world, enabling computers and robots to perceive and reason in a human-like manner.
 
 <hr class="section-divider">
 
