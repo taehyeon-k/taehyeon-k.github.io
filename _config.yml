@@ -221,6 +221,9 @@ collections:
   projects:
     output: false
     permalink: /:collection/:path/
+  blogs:
+    output: false
+    permlink: /:collection/:path/
  
 
 # These settings control how pages and collections are included in the site
@@ -249,6 +252,16 @@ defaults:
       type: projects
     values:
       layout: single
+      author_profile: true
+      share: true
+      comments: true
+  
+  # Blogs
+  - scope:
+      path: ""
+      type: blogs
+    values:
+      layout: archive
       author_profile: true
       share: true
       comments: true

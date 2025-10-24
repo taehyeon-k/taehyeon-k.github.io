@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <header>
+      <h1 class="page__title" itemprop="headline">{{ page.title }}</h1>
+      <p class="page__meta">
+        {% assign authors_txt = page.authors %}
+        {% if page.authors and page.authors.first %}
+          {% assign authors_txt = page.authors | array_to_sentence_string %}
+        {% endif %}
+        {% if authors_txt %}<strong>{{ authors_txt }}</strong> · {% endif %}
+        {% if page.venue or page.year %}{{ page.venue }}{% if page.venue and page.year %}, {% endif %}{{ page.year }} · {% endif %}
+        posted {{ page.date | date: "%b %d, %Y" }}
+      </p>
+      {% if page.thumbnail %}
+        <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" style="max-width:100%;border-radius:.5rem;margin:0.75rem 0;">
+      {% endif %}
+    </header>
+
+    <section class="page__content" itemprop="text">
+      {{ content }}
+    </section>
+  </article>
+</div>
