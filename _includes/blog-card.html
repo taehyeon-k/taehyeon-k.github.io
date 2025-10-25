@@ -1,0 +1,38 @@
+{% comment %}
+Expects: include.doc with front matter:
+title, authors (array or string), venue, year, thumbnail (path), date
+{% endcomment %}
+
+{% assign doc = include.doc %}
+{% assign authors_txt = doc.authors %}
+{% if doc.authors %}
+  {% if doc.authors.first %}
+    {% assign authors_txt = doc.authors | array_to_sentence_string %}
+  {% endif %}
+{% endif %}
+
+<div class="list__item blog-card">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    <a class="blog-card__thumb" href="{{ doc.url | relative_url }}" aria-label="{{ doc.title }}">
+      <img src="{{ doc.thumbnail | default: doc.header.teaser | relative_url }}" alt="{{ doc.title }}" loading="lazy">
+    </a>
+
+    <div class="blog-card__body">
+      <h2 class="archive__item-title" itemprop="headline">
+        <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+      </h2>
+
+      <div class="blog-card__meta">
+        {% if authors_txt %}
+          <span class="blog-card__authors">{{ authors_txt }}</span>
+        {% endif %}
+        {% if doc.venue or doc.year %}
+          <span class="blog-card__venue">
+            {{ doc.venue }}{% if doc.venue and doc.year %}, {% endif %}{{ doc.year }}
+          </span>
+        {% endif %}
+        <span class="blog-card__posted">posted {{ doc.date | date: "%b %d, %Y" }}</span>
+      </div>
+    </div>
+  </article>
+</div>
