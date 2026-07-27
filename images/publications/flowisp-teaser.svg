@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 940" role="img"
+     aria-label="Placeholder for the FlowISP qualitative results figure: a three-by-five grid of source, target and transferred images across five smartphone ISPs.">
+  <title>FlowISP qualitative results — figure placeholder</title>
+
+  <style>
+    .lbl  { font: 500 26px "Inter", system-ui, sans-serif; fill: #7a8294; }
+    .col  { font: 600 25px "Inter", system-ui, sans-serif; fill: #7a8294; text-anchor: middle; }
+    .sub  { font: 400 22px "Inter", system-ui, sans-serif; fill: #98a0b0; text-anchor: middle; }
+    .note { font: 500 23px "JetBrains Mono", ui-monospace, monospace; fill: #8b87ff; text-anchor: middle; }
+    .cell { fill: #7a8294; fill-opacity: .13; stroke: #7a8294; stroke-opacity: .34; stroke-width: 2; }
+    .glyph{ fill: none; stroke: #7a8294; stroke-opacity: .45; stroke-width: 2.4;
+            stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+
+  <!-- Column headers -->
+  <g>
+    <text class="col" x="410" y="44">Apple</text>
+    <text class="sub" x="410" y="74">iPhone 14 Pro Max</text>
+
+    <text class="col" x="640" y="44">Google</text>
+    <text class="sub" x="640" y="74">Pixel 6 Pro</text>
+
+    <text class="col" x="870" y="44">Huawei</text>
+    <text class="sub" x="870" y="74">P40</text>
+
+    <text class="col" x="1100" y="44">Samsung</text>
+    <text class="sub" x="1100" y="74">Galaxy S20</text>
+
+    <text class="col" x="1330" y="44">Xiaomi</text>
+    <text class="sub" x="1330" y="74">Mi 12</text>
+  </g>
+
+  <!-- Row labels -->
+  <g>
+    <text class="lbl" x="30" y="215">Source</text>
+    <text class="lbl" x="30" y="247">Image</text>
+
+    <text class="lbl" x="30" y="465">Target</text>
+    <text class="lbl" x="30" y="497">Images</text>
+
+    <text class="lbl" x="30" y="730">Ours</text>
+  </g>
+
+  <!-- 3 x 5 grid of image cells -->
+  <g>
+    <!-- Row 1 -->
+    <rect class="cell" x="310" y="105" width="200" height="240" rx="6"/>
+    <rect class="cell" x="540" y="105" width="200" height="240" rx="6"/>
+    <rect class="cell" x="770" y="105" width="200" height="240" rx="6"/>
+    <rect class="cell" x="1000" y="105" width="200" height="240" rx="6"/>
+    <rect class="cell" x="1230" y="105" width="200" height="240" rx="6"/>
+
+    <!-- Row 2 -->
+    <rect class="cell" x="310" y="355" width="200" height="240" rx="6"/>
+    <rect class="cell" x="540" y="355" width="200" height="240" rx="6"/>
+    <rect class="cell" x="770" y="355" width="200" height="240" rx="6"/>
+    <rect class="cell" x="1000" y="355" width="200" height="240" rx="6"/>
+    <rect class="cell" x="1230" y="355" width="200" height="240" rx="6"/>
+
+    <!-- Row 3 -->
+    <rect class="cell" x="310" y="620" width="200" height="240" rx="6"/>
+    <rect class="cell" x="540" y="620" width="200" height="240" rx="6"/>
+    <rect class="cell" x="770" y="620" width="200" height="240" rx="6"/>
+    <rect class="cell" x="1000" y="620" width="200" height="240" rx="6"/>
+    <rect class="cell" x="1230" y="620" width="200" height="240" rx="6"/>
+  </g>
+
+  <!-- A small landscape glyph in each cell, to hint at the content -->
+  <defs>
+    <g id="scene">
+      <path d="M-62 34 L-18 -6 L14 22 L40 -2 L62 20"/>
+      <circle cx="34" cy="-26" r="11"/>
+      <path d="M-62 46 H62"/>
+    </g>
+  </defs>
+
+  <g class="glyph">
+    <use href="#scene" x="410" y="225"/><use href="#scene" x="640" y="225"/>
+    <use href="#scene" x="870" y="225"/><use href="#scene" x="1100" y="225"/>
+    <use href="#scene" x="1330" y="225"/>
+
+    <use href="#scene" x="410" y="475"/><use href="#scene" x="640" y="475"/>
+    <use href="#scene" x="870" y="475"/><use href="#scene" x="1100" y="475"/>
+    <use href="#scene" x="1330" y="475"/>
+
+    <use href="#scene" x="410" y="740"/><use href="#scene" x="640" y="740"/>
+    <use href="#scene" x="870" y="740"/><use href="#scene" x="1100" y="740"/>
+    <use href="#scene" x="1330" y="740"/>
+  </g>
+
+  <!-- Replace-me notice -->
+  <text class="note" x="800" y="915">
+    Placeholder — replace with the real figure at images/publications/flowisp-teaser.png
+  </text>
+</svg>

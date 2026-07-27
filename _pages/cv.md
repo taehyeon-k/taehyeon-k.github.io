@@ -1,23 +1,33 @@
 ---
-layout: archive
+layout: page
 title: "Curriculum Vitae"
 permalink: /cv/
-author_profile: true
+lede: "A one-page summary of my education, research, awards and skills."
+wide: true
 redirect_from:
-  - /resume
+  - /resume/
 ---
 
-<a href="{{ '/files/kimtaehyeon_CV.pdf' | relative_url }}"
-   class="cv-btn"
-   download="TaehyeonKim_CV.pdf">
-  📄 Download CV (PDF)
-</a>
+<ul class="pub__links">
+  <li>
+    <a class="chip chip--primary" href="{{ site.author.cv | relative_url }}"
+       download="TaehyeonKim_CV.pdf" style="padding:.5rem 1rem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12M7.5 10.5L12 15l4.5-4.5M4.5 20h15"/>
+      </svg>
+      Download PDF
+    </a>
+  </li>
+  <li>
+    <a class="chip" href="{{ site.author.cv | relative_url }}" target="_blank" rel="noopener"
+       style="padding:.5rem 1rem">Open in new tab</a>
+  </li>
+</ul>
 
-<style>
-.cv-btn {
-  display:inline-block; padding:10px 14px; border-radius:10px;
-  border:1px solid #ddd; text-decoration:none; font-weight:600;
-}
-.cv-btn:hover { box-shadow:0 2px 10px rgba(0,0,0,.08); }
-</style>
-<embed src="/files/kimtaehyeon_CV.pdf" width="100%" height="1200px" type="application/pdf">
+<object class="cv-frame" data="{{ site.author.cv | relative_url }}" type="application/pdf">
+  <p style="padding:2rem;text-align:center;color:var(--text-muted)">
+    Your browser can't display the embedded PDF.
+    <a href="{{ site.author.cv | relative_url }}">Download the CV instead.</a>
+  </p>
+</object>

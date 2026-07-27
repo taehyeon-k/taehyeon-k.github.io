@@ -1,0 +1,31 @@
+{%- comment -%}
+  Renders a timeline of CV-style entries.
+  include.entries — array from _data/about.yml
+{%- endcomment -%}
+
+<ol class="timeline">
+  {%- for e in include.entries %}
+    <li>
+      <div class="entry__head">
+        <h3 class="entry__title">
+          {%- if e.title_url -%}
+            <a href="{{ e.title_url }}" target="_blank" rel="noopener">{{ e.title }}</a>
+          {%- else -%}
+            {{ e.title }}
+          {%- endif -%}
+          {%- if e.place %}<span style="font-weight:400;color:var(--text-faint)">, {{ e.place }}</span>{% endif -%}
+          {%- if e.badge %}<span class="entry__badge">{{ e.badge }}</span>{% endif -%}
+        </h3>
+        {%- if e.date %}<span class="entry__date">{{ e.date }}</span>{% endif %}
+      </div>
+
+      {%- if e.sub %}<p class="entry__sub">{{ e.sub }}</p>{% endif %}
+
+      {%- if e.items %}
+        <ul class="entry__list">
+          {%- for item in e.items %}<li>{{ item | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{% endfor %}
+        </ul>
+      {%- endif %}
+    </li>
+  {%- endfor %}
+</ol>

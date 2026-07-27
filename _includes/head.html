@@ -1,21 +1,81 @@
-{% include base_path %}
+{%- assign page_title = page.title | default: site.title -%}
+{%- if page.url == "/" -%}
+  {%- assign full_title = site.title | append: " " | append: site.title_separator | append: " " | append: site.author.role -%}
+{%- else -%}
+  {%- assign full_title = page_title | append: " " | append: site.title_separator | append: " " | append: site.title -%}
+{%- endif -%}
+{%- assign page_desc = page.description | default: page.tldr | default: site.description | strip_html | strip_newlines | truncate: 200 -%}
+{%- assign page_image = page.image | default: page.thumbnail | default: site.og_image -%}
 
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% include seo.html %}
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ page_desc }}">
+<meta name="author" content="{{ site.author.name }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
-<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+<!-- Open Graph / Twitter -->
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{% if page.layout == 'post' or page.layout == 'publication' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ full_title }}">
+<meta property="og:description" content="{{ page_desc }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+{%- if page_image %}
+<meta property="og:image" content="{{ page_image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- else %}
+<meta name="twitter:card" content="summary">
+{%- endif %}
+<meta name="twitter:title" content="{{ full_title }}">
+<meta name="twitter:description" content="{{ page_desc }}">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/images/apple-touch-icon-180x180.png' | relative_url }}">
+<link rel="icon" type="image/svg+xml" href="{{ '/images/favicon.svg' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon-32x32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/images/favicon-192x192.png' | relative_url }}">
+<link rel="manifest" href="{{ '/images/manifest.json' | relative_url }}">
+<meta name="theme-color" content="#5b56e8">
 
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+
+{%- if site.atom_feed.hide != true %}
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+{%- endif %}
+{%- if site.google_site_verification %}
+<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{%- endif %}
+
+<!-- Resolve the colour theme before first paint to avoid a flash. -->
 <script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var dark = saved ? saved === "dark"
+                       : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
 </script>
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
-
-<meta http-equiv="cleartype" content="on">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.author.name | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "image": {{ site.author.avatar | absolute_url | jsonify }},
+  "jobTitle": {{ site.author.role | jsonify }},
+  "email": {{ site.author.email | jsonify }},
+  "affiliation": { "@type": "Organization", "name": "Yonsei University" }
+}
+</script>

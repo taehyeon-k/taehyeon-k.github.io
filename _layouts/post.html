@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<div class="wrap wrap--narrow page-head">
+  <a class="back-link" href="{{ '/blogs/' | relative_url }}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 5l-7 7 7 7"/>
+    </svg>
+    All posts
+  </a>
+
+  <h1 class="page-head__title">{{ page.title }}</h1>
+
+  <p class="page-head__meta">
+    {%- if page.date %}{{ page.date | date: "%b %-d, %Y" }}{% endif -%}
+    {%- if page.read_time and content %}
+      {%- assign words = content | number_of_words -%}
+      {%- assign minutes = words | divided_by: site.words_per_minute | plus: 1 -%}
+      · {{ minutes }} min read
+    {%- endif -%}
+    {%- if page.venue or page.year %} · {{ page.venue }}{% if page.venue and page.year %} {% endif %}{{ page.year }}{% endif -%}
+  </p>
+
+  {%- if page.authors %}
+    <p class="page-head__meta" style="margin-top:.25rem">
+      {{ page.authors | join: ", " }}
+    </p>
+  {%- endif %}
+
+  {%- if page.tags %}
+    <ul class="tags" style="margin-top:.9rem">
+      {%- for t in page.tags %}<li class="tag">{{ t }}</li>{% endfor %}
+    </ul>
+  {%- endif %}
+</div>
+
+{%- assign hero = page.image | default: page.thumbnail -%}
+{%- if hero %}
+  <div class="wrap" style="margin-bottom:2.5rem">
+    <img src="{{ hero | relative_url }}" alt="{{ page.title }}"
+         style="width:100%;border-radius:var(--radius-lg);border:1px solid var(--border)">
+  </div>
+{%- endif %}
+
+<div class="wrap wrap--narrow prose">
+  {{ content }}
+</div>

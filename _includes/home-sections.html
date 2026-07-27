@@ -1,0 +1,167 @@
+{%- assign about = site.data.about -%}
+
+{%- comment -%} ---------------------------------------------- Research {%- endcomment -%}
+{%- if about.interests %}
+<section class="section" id="research">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Research Interests</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="card-grid">
+      {%- for i in about.interests %}
+        <article class="card interest">
+          <div class="interest__icon">{% include icon.html name=i.icon %}</div>
+          <h3>{{ i.title }}</h3>
+          <p>{{ i.body | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+          {%- if i.tags %}
+            <ul class="tags" style="margin-top:.9rem">
+              {%- for t in i.tags %}<li class="tag">{{ t }}</li>{% endfor %}
+            </ul>
+          {%- endif %}
+        </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- comment -%} ----------------------------------------- Publications {%- endcomment -%}
+{%- assign pubs = site.publications | sort: "date" | reverse -%}
+{%- if pubs.size > 0 %}
+<section class="section" id="publications">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Publications</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+      <a class="entry__date" href="{{ '/publications/' | relative_url }}"
+         style="color:var(--accent)">All publications →</a>
+    </div>
+
+    <ul class="pubs">
+      {%- for pub in pubs limit: 3 %}
+        {% include pub-card.html pub=pub %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- comment -%} ------------------------------------------------- News {%- endcomment -%}
+{%- if about.news %}
+<section class="section" id="news">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">News</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="news">
+      {%- for n in about.news %}
+        <li>
+          <span class="news__date">{{ n.date }}</span>
+          <p class="news__body">{{ n.body | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- comment -%} -------------------------------- Education / Experience {%- endcomment -%}
+{%- if about.education %}
+<section class="section" id="education">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Education</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    {% include entry-list.html entries=about.education %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if about.experience %}
+<section class="section" id="experience">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Research Experience</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    {% include entry-list.html entries=about.experience %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if about.awards %}
+<section class="section" id="awards">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Scholarships &amp; Awards</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    {% include entry-list.html entries=about.awards %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if about.competitions %}
+<section class="section" id="competitions">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Competitions</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    {% include entry-list.html entries=about.competitions %}
+  </div>
+</section>
+{%- endif %}
+
+{%- comment -%} ----------------------------------------------- Skills {%- endcomment -%}
+{%- if about.skills %}
+<section class="section" id="skills">
+  <div class="wrap reveal">
+    <div class="section__head">
+      <h2 class="section__title">Skills</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="card-grid">
+      {%- for group in about.skills %}
+        <article class="card">
+          <p class="eyebrow" style="margin-bottom:.65rem">{{ group.label }}</p>
+          <ul class="tags">
+            {%- for v in group.values %}<li class="tag">{{ v }}</li>{% endfor %}
+          </ul>
+        </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- comment -%} ------------------------------------------------ Contact {%- endcomment -%}
+<section class="section" id="contact">
+  <div class="wrap reveal">
+    <div class="card" style="text-align:center;padding:2.4rem 1.5rem">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="section__title" style="margin-bottom:.6rem">
+        Happy to talk about generative models and cameras.
+      </h2>
+      <p style="max-width:48ch;margin:0 auto 1.4rem;color:var(--text-muted)">
+        I'm always glad to hear from people working on flow matching, diffusion, or
+        anything downstream of a camera sensor.
+      </p>
+      <a class="chip chip--primary" href="mailto:{{ site.author.email }}"
+         style="padding:.55rem 1.1rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+          <path d="M3 6.5l9 6 9-6"/>
+        </svg>
+        {{ site.author.email }}
+      </a>
+    </div>
+  </div>
+</section>

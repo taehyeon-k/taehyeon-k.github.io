@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div class="wrap{% unless page.wide %} wrap--narrow{% endunless %} page-head">
+  <h1 class="page-head__title">{{ page.title }}</h1>
+  {%- if page.lede %}
+    <p class="page-head__lede">{{ page.lede }}</p>
+  {%- endif %}
+</div>
+
+<div class="wrap{% unless page.wide %} wrap--narrow{% endunless %} prose">
+  {{ content }}
+</div>

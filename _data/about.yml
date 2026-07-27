@@ -1,0 +1,122 @@
+# Content for the homepage sections. Edit here — no HTML required.
+
+interests:
+  - title: "Generative AI"
+    icon: sparkles
+    body: >-
+      Theoretical foundations of generative modelling, and the geometry of
+      generative trajectories — the paths along which generative models
+      transport probability mass.
+    tags: ["Flow Matching", "Diffusion Models", "Probability Paths"]
+
+  - title: "Computational Photography"
+    icon: camera
+    body: >-
+      Applying generative models to the camera pipeline: ISP-to-ISP style
+      transfer, and the design of next-generation camera pipelines.
+    tags: ["Camera ISP", "Style Transfer", "Low-Level Vision"]
+
+  - title: "User-Preference-Driven Editing"
+    icon: palette
+    body: >-
+      Image editing that follows what a person actually prefers, rather than
+      the fixed aesthetic signature baked into their hardware.
+    tags: ["Personal Color", "Image Editing", "Datasets"]
+
+news:
+  - date: "Feb 2026"
+    body: >-
+      Received **Honors** from Yonsei University (top 3% of students).
+
+  - date: "2026"
+    body: >-
+      **FlowISP: Latent Space ISP Transfer via Conditional Flow Matching** appears
+      at the Low-Level Vision Frontiers workshop, **CVPRW 2026**.
+
+  - date: "Sep 2025"
+    body: >-
+      Certified as an **Information Processing Craftsman** by the Human Resources
+      Development Service of Korea.
+
+  - date: "Aug 2025"
+    body: >-
+      Received **Highest Honors** from Yonsei University (top 1% of students), and
+      joined **CIPLAB** as an undergraduate research intern under Prof. Seon Joo Kim.
+
+  - date: "Mar 2024"
+    body: >-
+      Started my B.S. in **Artificial Intelligence** at Yonsei University on the
+      National Science and Engineering Undergraduate Scholarship.
+
+education:
+  - title: "Yonsei University"
+    title_url: "https://www.yonsei.ac.kr"
+    place: "Seoul, South Korea"
+    date: "Mar. 2024 – Present"
+    sub: "B.S. in Artificial Intelligence"
+    items:
+      - "GPA: 4.12 / 4.30 (cumulative) · 4.24 / 4.30 (major)"
+
+experience:
+  - title: "CIPLAB, Yonsei University"
+    title_url: "https://www.ciplab.kr"
+    date: "Aug. 2025 – Present"
+    sub: "Undergraduate Research Intern · Advisor: Prof. Seon Joo Kim"
+    items:
+      - >-
+        Studied computational photography with a focus on the camera ISP pipeline,
+        and investigated ISP-to-ISP transfer using generative models.
+      - "Contributed to the development of a dataset for personal color preference research."
+
+awards:
+  - title: "Honors"
+    title_url: "https://www.yonsei.ac.kr/sc/277/subview.do"
+    sub: "Yonsei University"
+    date: "Feb. 2026"
+    badge: "Top 3%"
+    items:
+      - "Ranked in the top 3% of students, with a GPA over 3.75 / 4.30."
+
+  - title: "Highest Honors"
+    title_url: "https://www.yonsei.ac.kr/sc/277/subview.do"
+    sub: "Yonsei University"
+    date: "Aug. 2025"
+    badge: "Top 1%"
+    items:
+      - "Ranked in the top 1% of students, with a GPA over 4.00 / 4.30."
+
+  - title: "National Science and Engineering Undergraduate Scholarship"
+    title_url: "https://www.kosaf.go.kr/ko/scholar.do?pg=scholarship05_06_01&ttab1=0"
+    sub: "Korea Student Aid Foundation"
+    date: "Mar. 2024 – Present"
+    items:
+      - "Four-year scholarship awarded to top students for excellence in mathematics and science."
+
+competitions:
+  - title: "The 2nd AI Drug Discovery Competition"
+    sub: "Convergence AI Institute for Drug Discovery"
+    date: "Aug. 2024"
+    badge: "17th / 900 · Top 2%"
+    items:
+      - >-
+        Developed and trained transformer-based models to predict IC50 values from
+        tabular data, with k-fold cross-validation and feature normalization.
+
+  - title: "The AI Competition for Extracting 4D Block Structures"
+    sub: "4DLand · AI Frenz"
+    date: "Jan. 2023"
+    badge: "37th / 461 · Top 9%"
+    items:
+      - >-
+        Trained CNN-based models to classify 4D block imaging data, with
+        augmentation and class-imbalance handling.
+
+skills:
+  - label: "Languages"
+    values: ["C", "C++", "Python"]
+  - label: "Frameworks"
+    values: ["PyTorch"]
+  - label: "Tools"
+    values: ["Docker", "Conda", "Jupyter"]
+  - label: "Spoken"
+    values: ["Korean (native)", "English (proficient) · TOEIC 950/990"]

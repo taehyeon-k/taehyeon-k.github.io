@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <h1 class="hero__name">Hi, I'm <span class="grad">Taehyeon</span>.</h1>
+
+      <p class="hero__role">
+        {{ site.author.role }}
+        {%- if site.author.lab %} ·
+          {%- if site.author.lab_url %}
+            <a href="{{ site.author.lab_url }}" rel="noopener">{{ site.author.lab }}</a>
+          {%- else %}{{ site.author.lab }}{% endif %}
+        {%- endif %}
+      </p>
+
+      <div class="hero__bio">
+        {{ content }}
+      </div>
+
+      {% include social-links.html %}
+    </div>
+
+    <figure class="hero__portrait">
+      <img src="{{ site.author.avatar | relative_url }}"
+           alt="Portrait of {{ site.author.name }}" width="480" height="480" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+{% include home-sections.html %}

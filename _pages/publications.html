@@ -1,36 +1,26 @@
 ---
-layout: archive
+layout: page
 title: "Publications"
 permalink: /publications/
-author_profile: true
+lede: "Peer-reviewed work, newest first."
+wide: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <p style="color:var(--text-muted);font-size:.94rem">
+    Also listed on my
+    <a href="{{ site.author.googlescholar }}" rel="noopener">Google Scholar profile</a>.
+  </p>
 {% endif %}
 
-{% include base_path %}
+{% assign pubs = site.publications | sort: "date" | reverse %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
+{% if pubs.size > 0 %}
+  <ul class="pubs">
+    {% for pub in pubs %}
+      {% include pub-card.html pub=pub %}
     {% endfor %}
-  {% endfor %}
+  </ul>
 {% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
+  <p class="empty">No publications listed yet — check back soon.</p>
 {% endif %}
-
-
-

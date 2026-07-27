@@ -1,0 +1,85 @@
+{%- comment -%}
+  A single publication entry.
+  include.pub — a document from the `publications` collection.
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+
+<li class="pub">
+  {%- if pub.image %}
+    <figure class="pub__figure">
+      <img src="{{ pub.image | relative_url }}"
+           alt="{{ pub.image_alt | default: pub.title }}" loading="lazy">
+      {%- if pub.image_caption %}
+        <figcaption>{{ pub.image_caption }}</figcaption>
+      {%- endif %}
+    </figure>
+  {%- endif %}
+
+  <div>
+    {%- if pub.venue %}
+      <span class="pub__venue">{{ pub.venue }}{% if pub.year %} {{ pub.year }}{% endif %}</span>
+    {%- endif %}
+
+    <h3 class="pub__title">
+      <a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>
+    </h3>
+
+    {%- if pub.authors %}
+      <p class="pub__authors">
+        {%- for a in pub.authors -%}
+          {%- if a == site.author.name -%}
+            <span class="me">{{ a }}</span>
+          {%- else -%}
+            {{ a }}
+          {%- endif -%}
+          {%- unless forloop.last %}, {% endunless -%}
+        {%- endfor -%}
+      </p>
+    {%- endif %}
+
+    {%- if pub.venue_full %}
+      <p class="pub__meta">{{ pub.venue_full }}</p>
+    {%- endif %}
+
+    {%- if pub.tldr %}
+      <p class="pub__tldr">{{ pub.tldr | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    {%- endif %}
+
+    <ul class="pub__links">
+      <li>
+        <a class="chip" href="{{ pub.url | relative_url }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 3v5h5"/>
+          </svg>
+          Details
+        </a>
+      </li>
+      {%- if pub.paper %}
+        <li><a class="chip" href="{{ pub.paper }}" rel="noopener">PDF</a></li>
+      {%- endif %}
+      {%- if pub.arxiv %}
+        <li><a class="chip" href="{{ pub.arxiv }}" rel="noopener">arXiv</a></li>
+      {%- endif %}
+      {%- if pub.code %}
+        <li><a class="chip" href="{{ pub.code }}" rel="noopener">Code</a></li>
+      {%- endif %}
+      {%- if pub.project %}
+        <li><a class="chip" href="{{ pub.project }}" rel="noopener">Project page</a></li>
+      {%- endif %}
+      {%- if pub.bibtex %}
+        <li>
+          <a class="chip" href="{{ pub.url | relative_url }}#bibtex">BibTeX</a>
+        </li>
+      {%- endif %}
+    </ul>
+
+    {%- if pub.abstract %}
+      <details class="disclosure">
+        <summary>Abstract</summary>
+        <div class="disclosure__body">{{ pub.abstract | markdownify }}</div>
+      </details>
+    {%- endif %}
+  </div>
+</li>
