@@ -12,7 +12,7 @@ permalink: /publications/flowisp/
 
 # Main figure. To swap in the final PNG, drop the file at
 # images/publications/flowisp-teaser.png and change this line to that path.
-image: /images/publications/flowisp-teaser.svg
+image: /images/publications/flowisp-teaser.png
 image_alt: >-
   Qualitative ISP transfer results. A single source image is rendered in the
   style of five different smartphone ISPs, compared against the real capture
