@@ -9,6 +9,10 @@ layout: default
   {%- endif %}
 </div>
 
-<div class="wrap{% unless page.wide %} wrap--narrow{% endunless %} prose">
+{%- comment -%}
+  `wide` pages (publication list, blog list, CV) lay out cards and embeds, so
+  they opt out of the `prose` article typography rather than fighting it.
+{%- endcomment -%}
+<div class="wrap{% unless page.wide %} wrap--narrow prose{% endunless %} page-body">
   {{ content }}
 </div>

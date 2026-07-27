@@ -778,7 +778,7 @@ th { font-weight: 600; background: var(--bg-soft); }
   padding: .5rem .7rem;
   font-size: .74rem;
   line-height: 1.5;
-  text-align: left;          /* wins over the centred .prose figcaption rule */
+  text-align: left;
   color: var(--text-faint);
   border-top: 1px solid var(--border);
   background: var(--bg);
@@ -958,21 +958,25 @@ th { font-weight: 600; background: var(--bg-soft); }
   color: var(--text-faint);
 }
 
-.prose { padding-bottom: 4rem; }
+.page-body { padding-bottom: 4rem; }
 
 .prose > h2 { margin-top: 2.4rem; font-size: 1.45rem; }
 .prose > h3 { margin-top: 1.9rem; }
 .prose ul, .prose ol { padding-left: 1.35rem; }
 .prose li { margin-bottom: .35rem; }
 
-.prose img {
+/* Scoped to direct children so publication/blog cards rendered inside a prose
+   column keep their own figure styling. */
+.prose > p > img,
+.prose > img,
+.prose > figure > img {
   border-radius: var(--radius);
   border: 1px solid var(--border);
   margin-block: 1.5rem;
 }
 
-.prose figure { margin: 1.8rem 0; }
-.prose figcaption {
+.prose > figure { margin: 1.8rem 0; }
+.prose > figure > figcaption {
   margin-top: .55rem;
   font-size: .82rem;
   color: var(--text-faint);
