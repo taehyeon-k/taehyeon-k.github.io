@@ -39,7 +39,7 @@ abstract: >-
   Experiments on multi-device ISP datasets demonstrate that FlowISP successfully
   reproduces target ISP aesthetics while strictly preserving scene geometry.
 
-# paper:   # link to the camera-ready PDF once it is online
+paper: /files/FlowISP_CVPRW2026.pdf
 # arxiv:   # https://arxiv.org/abs/XXXX.XXXXX
 # code:    # https://github.com/taehyeon-k/flowisp
 math: true
