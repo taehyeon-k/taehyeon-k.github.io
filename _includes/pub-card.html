@@ -9,9 +9,6 @@
     <figure class="pub__figure">
       <img src="{{ pub.image | relative_url }}"
            alt="{{ pub.image_alt | default: pub.title }}" loading="lazy">
-      {%- if pub.image_caption %}
-        <figcaption>{{ pub.image_caption }}</figcaption>
-      {%- endif %}
     </figure>
   {%- endif %}
 
@@ -75,11 +72,5 @@
       {%- endif %}
     </ul>
 
-    {%- if pub.abstract %}
-      <details class="disclosure">
-        <summary>Abstract</summary>
-        <div class="disclosure__body">{{ pub.abstract | markdownify }}</div>
-      </details>
-    {%- endif %}
   </div>
 </li>

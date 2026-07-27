@@ -10,25 +10,17 @@ venue_full: "CVPR Workshops (CVPRW) — Low-Level Vision Frontiers, 2026"
 date: 2026-06-01
 permalink: /publications/flowisp/
 
-# Main figure. To swap in the final PNG, drop the file at
-# images/publications/flowisp-teaser.png and change this line to that path.
 image: /images/publications/flowisp-teaser.png
 image_alt: >-
   Qualitative ISP transfer results. A single source image is rendered in the
   style of five different smartphone ISPs, compared against the real capture
   from each target camera.
-image_caption: >-
-  A single source capture (top) is transferred to five different smartphone
-  ISPs. Middle: the real photograph taken by each target camera. Bottom:
-  FlowISP's output, conditioned on that camera's learned style embedding.
 
 tldr: >-
   FlowISP re-renders a photograph in the colour signature of a *different*
-  camera's Image Signal Processor, working entirely inside the latent space of a
-  frozen Stable Diffusion VAE. We cast the problem as **conditional flow
-  matching** — a straight-line probability path from source-ISP latents to
-  target-ISP latents — and model the velocity field with a **disentangled DiT**
-  that conditions on time and on device identity through separate pathways.
+  camera's ISP, entirely inside the latent space of a frozen Stable Diffusion
+  VAE. We cast the transfer as **conditional flow matching** and model the
+  velocity field with a **disentangled DiT**.
 
 abstract: >-
   Modern camera Image Signal Processors (ISP) exhibit a series of complex,

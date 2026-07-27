@@ -16,27 +16,15 @@ interests:
       transfer, and the design of next-generation camera pipelines.
     tags: ["Camera ISP", "Style Transfer", "Low-Level Vision"]
 
-  - title: "User-Preference-Driven Editing"
-    icon: palette
-    body: >-
-      Image editing that follows what a person actually prefers, rather than
-      the fixed aesthetic signature baked into their hardware.
-    tags: ["Personal Color", "Image Editing", "Datasets"]
-
 news:
-  - date: "Feb 2026"
-    body: >-
-      Received **Honors** from Yonsei University (top 3% of students).
-
-  - date: "2026"
+  - date: "Jun 2026"
     body: >-
       **FlowISP: Latent Space ISP Transfer via Conditional Flow Matching** appears
       at the Low-Level Vision Frontiers workshop, **CVPRW 2026**.
 
-  - date: "Sep 2025"
+  - date: "Feb 2026"
     body: >-
-      Certified as an **Information Processing Craftsman** by the Human Resources
-      Development Service of Korea.
+      Received **Honors** from Yonsei University (top 3% of students).
 
   - date: "Aug 2025"
     body: >-
@@ -94,6 +82,7 @@ awards:
 
 competitions:
   - title: "The 2nd AI Drug Discovery Competition"
+    title_url: "https://dacon.io/en/competitions/official/236336/overview/description"
     sub: "Convergence AI Institute for Drug Discovery"
     date: "Aug. 2024"
     badge: "17th / 900 · Top 2%"
@@ -103,6 +92,7 @@ competitions:
         tabular data, with k-fold cross-validation and feature normalization.
 
   - title: "The AI Competition for Extracting 4D Block Structures"
+    title_url: "https://dacon.io/en/competitions/official/236046/overview/description"
     sub: "4DLand · AI Frenz"
     date: "Jan. 2023"
     badge: "37th / 461 · Top 9%"

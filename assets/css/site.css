@@ -20,13 +20,13 @@
   --text-muted:    #5b6472;
   --text-faint:    #8a93a3;
 
-  --accent:        #5b56e8;
-  --accent-soft:   #eeeeff;
-  --accent-2:      #06a6c4;
-  --accent-3:      #e2568f;
+  --accent:        #0a76b4;   /* ~4.9:1 on white — safe for link text */
+  --accent-soft:   #e4f2fb;
+  --accent-2:      #38b6e8;
+  --accent-3:      #7fd4f0;
 
-  --gradient:      linear-gradient(115deg, #5b56e8 0%, #7c5ce8 42%, #06a6c4 100%);
-  --gradient-warm: linear-gradient(115deg, #e2568f 0%, #7c5ce8 100%);
+  --gradient:      linear-gradient(115deg, #0a76b4 0%, #1a9ad4 45%, #35bde4 100%);
+  --gradient-warm: linear-gradient(115deg, #35bde4 0%, #1a9ad4 100%);
 
   --shadow-sm: 0 1px 2px rgba(16, 19, 26, .05);
   --shadow-md: 0 4px 16px -4px rgba(16, 19, 26, .10), 0 1px 3px rgba(16, 19, 26, .05);
@@ -60,13 +60,13 @@
   --text-muted:    #9aa3b5;
   --text-faint:    #6d768a;
 
-  --accent:        #8b87ff;
-  --accent-soft:   #1b1e33;
-  --accent-2:      #2ad2ea;
-  --accent-3:      #ff7ab0;
+  --accent:        #56bde8;
+  --accent-soft:   #12283a;
+  --accent-2:      #7dd3fc;
+  --accent-3:      #a5e8f7;
 
-  --gradient:      linear-gradient(115deg, #8b87ff 0%, #a78bfa 42%, #2ad2ea 100%);
-  --gradient-warm: linear-gradient(115deg, #ff7ab0 0%, #a78bfa 100%);
+  --gradient:      linear-gradient(115deg, #38a8e0 0%, #56c4ee 45%, #86dcf5 100%);
+  --gradient-warm: linear-gradient(115deg, #86dcf5 0%, #38a8e0 100%);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
   --shadow-md: 0 4px 16px -4px rgba(0, 0, 0, .55), 0 1px 3px rgba(0, 0, 0, .4);
@@ -278,22 +278,6 @@ th { font-weight: 600; background: var(--bg-soft); }
 }
 .nav__brand:hover { color: var(--text); }
 
-.nav__mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  background: var(--gradient);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: -.03em;
-  box-shadow: var(--shadow-sm);
-  transition: transform .3s var(--ease);
-}
-.nav__brand:hover .nav__mark { transform: rotate(-8deg) scale(1.06); }
-
 .nav__links {
   display: flex;
   align-items: center;
@@ -396,16 +380,16 @@ th { font-weight: 600; background: var(--bg-soft); }
   /* Soft ambient colour. Radial stops reach full transparency well before the
      section edges, so nothing shows a hard clip line the way a blurred box would. */
   background:
-    radial-gradient(52% 62% at 88% 4%,  rgba(91, 86, 232, .26), transparent 68%),
-    radial-gradient(44% 54% at 102% 26%, rgba(6, 166, 196, .22), transparent 70%),
-    radial-gradient(46% 58% at -4% 96%,  rgba(226, 86, 143, .13), transparent 72%);
+    radial-gradient(52% 62% at 88% 4%,  rgba(26, 154, 212, .24), transparent 68%),
+    radial-gradient(44% 54% at 102% 26%, rgba(53, 189, 228, .22), transparent 70%),
+    radial-gradient(46% 58% at -4% 96%,  rgba(127, 212, 240, .16), transparent 72%);
 }
 
 :root[data-theme="dark"] .hero {
   background:
-    radial-gradient(52% 62% at 88% 4%,  rgba(139, 135, 255, .20), transparent 68%),
-    radial-gradient(44% 54% at 102% 26%, rgba(42, 210, 234, .15), transparent 70%),
-    radial-gradient(46% 58% at -4% 96%,  rgba(255, 122, 176, .10), transparent 72%);
+    radial-gradient(52% 62% at 88% 4%,  rgba(56, 168, 224, .20), transparent 68%),
+    radial-gradient(44% 54% at 102% 26%, rgba(86, 196, 238, .15), transparent 70%),
+    radial-gradient(46% 58% at -4% 96%,  rgba(134, 220, 245, .11), transparent 72%);
 }
 
 .hero__grid {
@@ -838,49 +822,6 @@ th { font-weight: 600; background: var(--bg-soft); }
 }
 
 .pub__links .chip { font-size: .8rem; padding: .34rem .7rem; }
-
-/* Expandable abstract */
-
-.disclosure {
-  margin-top: .9rem;
-  border-top: 1px solid var(--border);
-  padding-top: .8rem;
-}
-
-.disclosure > summary {
-  cursor: pointer;
-  list-style: none;
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  font-family: var(--font-mono);
-  font-size: .76rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  transition: color .18s var(--ease);
-}
-.disclosure > summary::-webkit-details-marker { display: none; }
-.disclosure > summary:hover { color: var(--accent); }
-
-.disclosure > summary::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
-  transition: transform .22s var(--ease);
-}
-.disclosure[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
-
-.disclosure__body {
-  margin-top: .7rem;
-  font-size: .91rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-}
-.disclosure__body p:last-child { margin-bottom: 0; }
 
 /* --------------------------------------------------------------------------
    10. Blog list
